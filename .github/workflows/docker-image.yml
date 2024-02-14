@@ -31,8 +31,3 @@ jobs:
         run : docker run -d -p 80:5000 -name app-container git-aws
 
 
-services:
-  web:
-    build: .
-    ports:
-      -"80:5000"
