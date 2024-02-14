@@ -15,19 +15,19 @@ jobs:
     - name: Login to docker hub
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Build docker image
-      run : docker build -t git-aws .
+      run : docker build -t MyownModel .
     - name : Publish image to docker hub
-      run : docker push git-aws:latest
+      run : docker push MyownModel:latest
 
   deploy:
     needs : build
     runs-on : [aws-ec2]
     steps:
       - name : Pull image from docker hub
-        run: docker pull git-aws:latest
+        run: docker pull MyownModel:latest
       - name : Delete old container
         run : docker rm -f app-container
       - name : Run docker container
-        run : docker run -d -p 80:5000 -name app-container git-aws
+        run : docker run -d -p 80:5000 -name app-container MyownModel
 
 
