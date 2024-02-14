@@ -31,6 +31,6 @@ jobs:
       - name : Delete old container
         run : docker rm -f app-container
       - name : Run docker container
-        run : docker run -d -p 80:5000 --name app-container demo1
+        run : docker run -d -p 80:5000 --name app-container jaisai2512/name:demo1
 
 
