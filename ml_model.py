@@ -15,3 +15,4 @@ logreg.fit(X_train, y_train)
 
 # Save the model using joblib
 joblib.dump(logreg, 'logreg.joblib')
+#jjjj
